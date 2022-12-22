@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const monoosePaginate = require('mongoose-paginate-v2')
 
 const squema = new mongoose.Schema({
     name: {type: String},
@@ -12,5 +13,7 @@ const squema = new mongoose.Schema({
     //Para que nos de la fecha de creación y actualización
     timestamps: true
 })
+
+squema.plugin(monoosePaginate)
 
 module.exports = mongoose.model('producto', squema)

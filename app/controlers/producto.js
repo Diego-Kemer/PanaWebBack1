@@ -1,7 +1,8 @@
 const producto = require('../models/products')
 
 const getItems = async (req, res)=>{
-    const productos = await producto.find({}) 
+    const page = req.params.page;
+    const productos = await producto.paginate({}, {page, limit: 20}) 
     try {
         res.json({
             error: false,
