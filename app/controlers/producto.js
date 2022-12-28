@@ -16,8 +16,24 @@ const getItems = async (req, res)=>{
     }
 }
 
+const getItemsForCategoria = async (req, res)=>{
+    const categoria = req.params.categoria
+    const page = req.params.page
+    const products = await producto.paginate({categoria}, {page, limit: 20})
+    try {
+        res.json({
+            error: false,
+            data: products
+        })
+    } catch (error) {
+        res.json({
+            error: true,
+            mensaje: `Salió el siguiente error ${error}`  
+        })
+    }
+}
+
 const getItem = async (req, res)=>{
-    console.log(req.params)
     const id = req.params.id
     const product = await producto.findOne({_id: id})
     try {
@@ -83,4 +99,4 @@ const deleteItem = async (req, res)=>{
     }
 }
 
-module.exports = {getItem, getItems, createItem, updateItem, deleteItem}
+module.exports = {getItem, getItems, getItemsForCategoria, createItem, updateItem, deleteItem}
