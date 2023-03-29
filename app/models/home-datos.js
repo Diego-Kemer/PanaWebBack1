@@ -7,7 +7,8 @@ const datos = new Schema({
     email: {type: String, required: true},
     wspp: {type: Number},
     color1: {type: String},
-    color2: {type: String} 
+    color2: {type: String},
+    color3: {type: String}
 })
 
 module.exports = model('datosHome', datos)

@@ -16,8 +16,8 @@ const getDatos = async (req, res)=>{
 }
 
 const createData = async (req, res)=>{
-    const {nombre, face, insta, wspp , email, color1, color2} = req.body;
-    const creado = await datos.create({nombre, face, insta, wspp , email, color1, color2})
+    const {nombre, face, insta, wspp , email, color1, color2, color3} = req.body;
+    const creado = await datos.create({nombre, face, insta, wspp , email, color1, color2, color3})
     try {
         res.json({
             error: false,
